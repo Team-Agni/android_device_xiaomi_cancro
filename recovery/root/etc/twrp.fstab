@@ -1,6 +1,6 @@
 #mount-point  fstype  device                                                    options (length for cryptfs encryption footer)
 /system       ext4    /dev/block/platform/msm_sdcc.1/by-name/system             flags=backup=1;canbewiped;wipeingui
-/cache        ext4    /dev/block/platform/msm_sdcc.1/by-name/cache              flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset             
+/cache        ext4    /dev/block/platform/msm_sdcc.1/by-name/cache              flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
 /data         ext4    /dev/block/platform/msm_sdcc.1/by-name/userdata           flags=encryptable=/dev/block/platform/msm_sdcc.1/by-name/bk1;backup=1;canbewiped;wipeingui;wipeduringfactoryreset
 /persist      ext4    /dev/block/platform/msm_sdcc.1/by-name/persist
 /firmware     vfat    /dev/block/platform/msm_sdcc.1/by-name/modem 

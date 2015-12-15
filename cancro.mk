@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-
 # Common QCOM configuration tools
 $(call inherit-product, device/qcom/common/Android.mk)
 
@@ -26,10 +24,13 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk
 # call the proprietary setup
 $(call inherit-product, vendor/xiaomi/cancro/cancro-vendor.mk)
 
+# Device overlays
 DEVICE_PACKAGE_OVERLAYS += device/xiaomi/cancro/overlay
 
+# Define LOCAL_PATH
 LOCAL_PATH := device/xiaomi/cancro
 
+# Device has no sdcard
 PRODUCT_CHARACTERISTICS := nosdcard
 
 ifeq ($(RECOVERY_VARIANT),twrp)
@@ -38,19 +39,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/etc/twrp.fstab:recovery/root/etc/twrp.fstab
 endif
 
-# Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
+# Screen density
+PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1080
+# Set io scheduler
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.io.scheduler=bfq
 
-# Camera
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    camera2.portability.force_api=1
-
-# Quick Charging 2.0
+# Quick charge 2.0
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.usb.hvdcp.detect=true
 
@@ -79,7 +76,7 @@ PRODUCT_PACKAGES += \
     init.qcom.syspart_fixup.sh \
     init.qcom.usb.sh
 
-# QCOM Config Script
+# QCOM config script
 PRODUCT_PACKAGES += \
     hsic.control.bt.sh \
     init.qcom.bt.sh \
@@ -90,14 +87,7 @@ PRODUCT_PACKAGES += \
     qca6234-service.sh \
     usf_post_boot.sh
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/mount_ext4.sh:system/bin/mount_ext4.sh \
-    $(LOCAL_PATH)/rootdir/root/e2fsck_static:root/sbin/e2fsck_static
-
 # GPS
-#PRODUCT_PACKAGES += \
-#    gps.msm8974
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
@@ -108,21 +98,31 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.gps.agps_provider=1
 
-#camera
+# Camera
 PRODUCT_PACKAGES += \
     camera.msm8974 \
     libxml2
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    camera2.portability.force_api=1
 
 # Radio
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
 
 # Lights
-PRODUCT_PACKAGES += lights.msm8974
+PRODUCT_PACKAGES += \
+    lights.msm8974
 
 # Power
 PRODUCT_PACKAGES += \
     power.msm8974
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qualcomm.perf.cores_online=1
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/changepowermode.sh:system/bin/changepowermode.sh
 
 # WiFi
 PRODUCT_COPY_FILES += \
@@ -172,7 +172,7 @@ PRODUCT_COPY_FILES += \
 
 # NFC remover script for Mi4
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/nfc/removenfc.sh:/install/bin/removenfc.sh
+    $(LOCAL_PATH)/nfc/removenfc.sh:install/bin/removenfc.sh
 
 # Thermal config
 PRODUCT_COPY_FILES += \
@@ -207,7 +207,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-	$(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
@@ -238,7 +238,7 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     tinymix
 
-#Enable more sensor
+# Enable more sensors
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.sensors.qmd=true \
     ro.qualcomm.sensors.smd=true \
@@ -259,13 +259,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
-    make_ext4fs \
-    setup_fs \
-    mkntfs \
-    dumpe2fs \
-    resize2fs \
-    e2fsck_static \
-    mke2fs_static \
     resize2fs_static
 
 # Graphics
@@ -280,7 +273,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=0
 
-#Wifi
+# Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.cne.feature=0
 
@@ -293,7 +286,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     keystore.msm8974
 
-# FM Radio
+# FM radio
 PRODUCT_PACKAGES += \
     FMRadio \
     libfmjni
@@ -301,10 +294,6 @@ PRODUCT_PACKAGES += \
 # USB
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
-
-# set USB OTG enabled to add support for USB storage type
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.isUsbOtgEnabled=1
 
 # Misc dependency packages
 PRODUCT_PACKAGES += \
@@ -320,31 +309,12 @@ PRODUCT_PACKAGES += \
     com.dsi.ant.antradio_library \
     libantradio
 
-#Bluetooth
+# Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     qcom.bt.dev_power_class=1 \
     bluetooth.hfp.client=1 \
     ro.bluetooth.alwaysbleon=true \
     qcom.bt.dev_power_class=1
-
-# Optional CM packages
-PRODUCT_PACKAGES += \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-
-# Extra tools in CM
-PRODUCT_PACKAGES += \
-    7z \
-    bash \
-    bzip2 \
-    curl \
-    powertop \
-    unrar \
-    unzip \
-    vim \
-    wget \
-    zip
 
 # System properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -358,7 +328,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnGsmDevice=1 \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15 \
-    ro.qualcomm.perf.cores_online=2 \
     ro.vendor.extension_library=libqti-perfd-client.so \
     ro.telephony.call_ring.multiple=0 \
     ro.telephony.default_network=9
@@ -403,5 +372,5 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
-	frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml \
+    frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.print.xml:system/etc/permissions/android.software.print.xml

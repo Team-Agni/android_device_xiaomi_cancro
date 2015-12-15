@@ -65,11 +65,7 @@ on post-fs-data
     chown system system /dev/sysmatdrv
     chmod 0660 /dev/sysmatdrv
 
-    # Torch
-    chown system camera /sys/class/leds/torch-light/brightness
-    chmod 0660 /sys/class/leds/torch-light/brightness
-
-	# Vibrator permissions
+    # Vibrator permissions
     chown system system /sys/vibrator/pwmvalue
     chmod 0644 /sys/vibrator/pwmvalue
 
@@ -272,6 +268,18 @@ service changepowermode /system/bin/changepowermode.sh
     user root
     oneshot
     disabled
+
+on property:sys.perf.profile=2
+     start changepowermode
+     stop thermal-engine
+
+on property:sys.perf.profile=1
+     start changepowermode
+     start thermal-engine
+
+on property:sys.perf.profile=0
+     start changepowermode
+     start thermal-engine
 
 on property:persist.sys.display_prefer=0
     write /sys/devices/virtual/graphics/fb0/msm_fb_dispparam 0x2

@@ -1,4 +1,4 @@
-#ril
+# Ril
 rild.libpath=/vendor/lib/libril-qc-qmi-1.so
 rild.libargs=-d /dev/smd0
 
@@ -11,11 +11,12 @@ ro.qualcomm.cabl=0
 ro.qcom.ad=1
 ro.qcom.ad.calib.data=/system/etc/calib.cfg
 
+# Sensors
 ro.qc.sdk.sensors.gestures=true
 ro.qc.sdk.gestures.camera=false
 ro.qc.sdk.camera.facialproc=false
 
-#display
+# Display
 ro.sf.lcd_density=480
 
 # Audio
