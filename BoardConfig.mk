@@ -138,6 +138,22 @@ BOARD_NATIVE_DUALBOOT := true
 BOARD_NATIVE_DUALBOOT_SINGLEDATA := true
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 
+ifneq ($(wildcard bootable/recovery-twrp/Android.mk),)
+# Recovery variant
+RECOVERY_VARIANT := twrp
+endif
+
+ifeq ($(RECOVERY_VARIANT),twrp)
+# TWRP
+TW_THEME := portrait_hdpi
+TW_INCLUDE_CRYPTO := true
+BOARD_HAS_NO_REAL_SDCARD := true
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_RECOVERY_SWIPE := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
+endif
+
 # CM Hardware
 BOARD_HARDWARE_CLASS += $(CANCRO_PATH)/cmhw
 

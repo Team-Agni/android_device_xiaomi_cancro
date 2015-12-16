@@ -32,6 +32,12 @@ LOCAL_PATH := device/xiaomi/cancro
 
 PRODUCT_CHARACTERISTICS := nosdcard
 
+ifeq ($(RECOVERY_VARIANT),twrp)
+# TWRP
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/root/etc/twrp.fstab:recovery/root/etc/twrp.fstab
+endif
+
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
