@@ -32,7 +32,6 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug
 
 on property:init.svc.bootanim=running
-    setprop sys.perf.profile 1
     start mpdecision
 
 on init
