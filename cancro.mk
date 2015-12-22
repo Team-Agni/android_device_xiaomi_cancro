@@ -43,6 +43,13 @@ endif
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+# adb unsecure for userdebug builds
+ifeq ($(TARGET_BUILD_VARIANT),userdebug)
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0 \
+    ro.adb.secure=0
+endif
+
 # Set io scheduler
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.io.scheduler=bfq
