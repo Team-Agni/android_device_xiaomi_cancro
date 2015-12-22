@@ -27,6 +27,7 @@
 #
 
 target=`getprop ro.board.platform`
+model=`getprop ro.product.model`
 case "$target" in
     "msm7201a_ffa" | "msm7201a_surf" | "msm7627_ffa" | "msm7627_6x" | "msm7627a"  | "msm7627_surf" | \
     "qsd8250_surf" | "qsd8250_ffa" | "msm7630_surf" | "msm7630_1x" | "msm7630_fusion" | "qsd8650a_st1x")
@@ -75,6 +76,7 @@ case "$target" in
                 do
                     echo "cpubw_hwmon" > $devfreq_gov
                 done
+                echo 2 > /sys/devices/system/cpu/sched_mc_power_savings
                 echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
                 echo "interactive" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
                 echo "interactive" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
@@ -84,13 +86,29 @@ case "$target" in
                 echo 1497600 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
                 echo 1497600 > /sys/devices/system/cpu/cpufreq/interactive/input_boost_freq
                 echo 1 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-                echo "85 1500000:90 1800000:70" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
                 echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
                 echo 20 > /sys/module/cpu_boost/parameters/boost_ms
                 echo 1728000 > /sys/module/cpu_boost/parameters/sync_threshold
+                echo 1497600 > /sys/module/cpu_boost/parameters/input_boost_freq
                 echo 100000 > /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor
                 echo 40 > /sys/module/cpu_boost/parameters/input_boost_ms
-                setprop ro.qualcomm.perf.cores_online 1
+                echo 578000000 > /sys/class/kgsl/kgsl-3d0/max_gpuclk
+                case "$model" in
+                    "MI 3W")
+                        echo 2265600 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+                        echo 2265600 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+                        echo 2265600 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
+                        echo 2265600 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
+                        echo "85 1500000:90 1800000:70" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
+                        ;;
+                    "MI 4"*)
+                        echo 2457600 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+                        echo 2457600 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+                        echo 2457600 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
+                        echo 2457600 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
+                        echo "85 1500000:99" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
+                        ;;
+                esac
             ;;
             *)
                 echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
