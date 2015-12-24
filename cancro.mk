@@ -1,4 +1,4 @@
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2015 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,29 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Common QCOM configuration tools
-$(call inherit-product, device/qcom/common/Android.mk)
-
-# call dalvik heap config
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
-
-# call hwui memory config
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
-
-# call the proprietary setup
-$(call inherit-product, vendor/xiaomi/cancro/cancro-vendor.mk)
+# Define LOCAL_PATH
+LOCAL_PATH := device/xiaomi/cancro
 
 # Device overlays
 DEVICE_PACKAGE_OVERLAYS += device/xiaomi/cancro/overlay
 
-# Define LOCAL_PATH
-LOCAL_PATH := device/xiaomi/cancro
-
 # Device has no sdcard
 PRODUCT_CHARACTERISTICS := nosdcard
 
+# TWRP fstab
 ifeq ($(RECOVERY_VARIANT),twrp)
-# TWRP
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/etc/twrp.fstab:recovery/root/etc/twrp.fstab
 endif

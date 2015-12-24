@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2015 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,11 +14,11 @@
 # limitations under the License.
 #
 
-# Board vendor
-BOARD_VENDOR := xiaomi
-
 # Define CANCRO_PATH
 CANCRO_PATH := device/xiaomi/cancro
+
+# Board vendor
+BOARD_VENDOR := xiaomi
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(CANCRO_PATH)/releasetools
@@ -41,7 +41,7 @@ TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := krait
 USE_CLANG_PLATFORM_BUILD := true
 
-# Flags
+# Common build flags
 COMMON_GLOBAL_CFLAGS += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64 -DUSE_RIL_VERSION_10
 COMMON_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_10
 
@@ -63,8 +63,10 @@ TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_LIBINIT_DEFINES_FILE := $(CANCRO_PATH)/init/init_cancro.cpp
 
-# QCOM hardware
+# Board uses QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
+
+# Powerhal
 TARGET_POWERHAL_VARIANT := qcom
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(CANCRO_PATH)/power/power_ext.c
 
@@ -140,13 +142,13 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 
-ifneq ($(wildcard bootable/recovery-twrp/Android.mk),)
 # Recovery variant
+ifneq ($(wildcard bootable/recovery-twrp/Android.mk),)
 RECOVERY_VARIANT := twrp
 endif
 
+# TWRP flags
 ifeq ($(RECOVERY_VARIANT),twrp)
-# TWRP
 TW_THEME := portrait_hdpi
 TW_INCLUDE_CRYPTO := true
 BOARD_HAS_NO_REAL_SDCARD := true
@@ -177,7 +179,7 @@ BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
-# Radio
+# Ril
 TARGET_RIL_VARIANT := caf
 
 # Simple time service client
@@ -199,11 +201,11 @@ ifeq ($(HOST_OS),linux)
 endif
 DONT_DEXPREOPT_PREBUILTS := true
 
-# SELinux policies
-# qcom sepolicy
+# QCOM sepolicy
 include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += \
-        $(CANCRO_PATH)/sepolicy
+# Device specific sepolicy
+BOARD_SEPOLICY_DIRS += $(CANCRO_PATH)/sepolicy
 
+# Include if exists
 -include vendor/xiaomi/cancro/BoardConfigVendor.mk
