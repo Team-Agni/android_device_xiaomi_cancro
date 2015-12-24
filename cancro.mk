@@ -305,13 +305,23 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
-# Misc dependency packages
+# Misc. dependency packages
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
     curl \
     libnl_2 \
     libbson
+
+# Extra CM packages
+PRODUCT_PACKAGES += \
+    7z \
+    LiveWallpapersPicker \
+    Screencast \
+    SoundRecorder \
+    unrar \
+    unzip \
+    zip
 
 # ANT+
 PRODUCT_PACKAGES += \
