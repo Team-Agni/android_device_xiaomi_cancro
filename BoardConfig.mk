@@ -149,7 +149,6 @@ endif
 
 # TWRP flags
 ifeq ($(RECOVERY_VARIANT),twrp)
-TW_THEME := portrait_hdpi
 TW_INCLUDE_CRYPTO := true
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_SDCARD_ON_DATA := true
