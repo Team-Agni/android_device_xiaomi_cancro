@@ -69,8 +69,8 @@ case $mode in
    /system/bin/fm_qsoc_patches $version 2
      ;;
    *)
-    logi "Shell: Default case"
-    /system/bin/fm_qsoc_patches $version 0
+   logi "Shell: Default case"
+   /system/bin/fm_qsoc_patches $version 0
     ;;
 esac
 
