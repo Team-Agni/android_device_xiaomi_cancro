@@ -301,16 +301,6 @@ PRODUCT_PACKAGES += \
     libnl_2 \
     libbson
 
-# Extra CM packages
-PRODUCT_PACKAGES += \
-    7z \
-    LiveWallpapersPicker \
-    Screencast \
-    SoundRecorder \
-    unrar \
-    unzip \
-    zip
-
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService \

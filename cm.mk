@@ -29,8 +29,8 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk
 # Inherit from cancro device
 $(call inherit-product, device/xiaomi/cancro/cancro.mk)
 
-# Inherit some common CM stuff (mini)
-$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
+# Inherit some common CM stuff
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Enhanced NFC
 $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
