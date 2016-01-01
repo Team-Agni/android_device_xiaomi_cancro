@@ -15,9 +15,8 @@
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
-TARGET_CONTINUOUS_SPLASH_ENABLED := true
 
-# Inherit from AOSP
+# Inherit from AOSP/CM base
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Call dalvik heap config

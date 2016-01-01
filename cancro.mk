@@ -31,6 +31,10 @@ endif
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+# Display
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=480
+
 # adb unsecure for userdebug builds
 ifeq ($(TARGET_BUILD_VARIANT),userdebug)
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -98,6 +102,7 @@ PRODUCT_PACKAGES += \
     camera.msm8974 \
     libxml2
 
+# Camera api
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
 
@@ -136,6 +141,15 @@ PRODUCT_PACKAGES += \
     hostapd_default.conf \
     hostapd.accept \
     hostapd.deny
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=15 \
+    ro.use_data_netmgrd=true \
+    persist.data.netmgrd.qos.enable=true \
+    persist.data.tcpackprio.enable=true \
+    ro.data.large_tcp_window_size=true \
+    persist.cne.feature=0
 
 # SoftAP
 PRODUCT_PACKAGES += \
@@ -201,28 +215,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/acdb/MTP/MTP_Headset_cal.acdb:system/etc/acdbdata/MTP/MTP_Headset_cal.acdb \
     $(LOCAL_PATH)/audio/acdb/MTP/MTP_Speaker_cal.acdb:system/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
 
-# Media profile
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
-
-# Media
-PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libdivxdrmdecrypt \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxCore \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
-    libOmxVdec \
-    libOmxVenc \
-    libstagefrighthw
-
 PRODUCT_PACKAGES += \
     audiod \
     audio.a2dp.default \
@@ -235,6 +227,47 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     tinymix
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qc.sdk.audio.ssr=false \
+    ro.qc.sdk.audio.fluencetype=fluence \
+    persist.audio.fluence.voicecall=true \
+    persist.audio.fluence.voicerec=true \
+    persist.audio.fluence.speaker=false \
+    audio.offload.video=false \
+    use.voice.path.for.pcm.voip=true
+
+# Media
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+
+PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    libdivxdrmdecrypt \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc \
+    libstagefrighthw
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.stagefright.enable-player=true \
+    media.stagefright.enable-http=true \
+    media.stagefright.enable-aac=true \
+    media.stagefright.enable-qcp=true \
+    media.stagefright.enable-fma2dp=true \
+    media.stagefright.enable-scan=true \
+    mmp.enable.3g2=true \
+    mm.enable.smoothstreaming=true \
+    mm.enable.qcom_parser=37491
 
 # Enable more sensors
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -251,9 +284,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sensors.step_detector=true \
     ro.qc.sensors.step_counter=true \
     ro.qc.sensors.max_geomag_rotvec=true \
+    ro.qc.sdk.sensors.gestures=true \
+    ro.qc.sdk.gestures.camera=false \
+    ro.qc.sdk.camera.facialproc=false \
     debug.qualcomm.sns.hal=w \
     debug.qualcomm.sns.daemon=w \
     debug.qualcomm.sns.libsensor1=w
+
+# System property for cabl
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qualcomm.cabl=0 \
+    ro.qcom.ad=1 \
+    ro.qcom.ad.calib.data=/system/etc/calib.cfg
+
+# VIDC: debug_levels
+# 1:ERROR 2:HIGH 4:LOW 0:NOLOGS 7:AllLOGS
+PRODUCT_PROPERTY_OVERRIDES += \
+    vidc.debug.level=1
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -270,10 +317,6 @@ PRODUCT_PACKAGES += \
 # power down SIM card when modem is sent to Low Power Mode.
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=0
-
-# Wifi
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.cne.feature=0
 
 # Data
 PRODUCT_PACKAGES += \
@@ -314,18 +357,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.alwaysbleon=true \
     qcom.bt.dev_power_class=1
 
-# System properties
+# Misc. system properties
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.mdpcomp.enable=true \
     persist.timed.enable=true \
     ro.opengles.version=196608 \
-    ro.use_data_netmgrd=true \
-    persist.data.netmgrd.qos.enable=true \
-    persist.data.tcpackprio.enable=true \
-    ro.data.large_tcp_window_size=true \
     telephony.lteOnGsmDevice=1 \
-    wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=15 \
     ro.vendor.extension_library=libqti-perfd-client.so \
     ro.telephony.call_ring.multiple=0 \
     ro.telephony.default_network=9

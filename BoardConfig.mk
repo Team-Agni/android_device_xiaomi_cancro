@@ -84,7 +84,6 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(CANCRO_PATH)/bluetooth
 QCOM_BT_USE_SMD_TTY := true
 BLUETOOTH_HCI_USE_MCT := true
-FEATURE_QCRIL_UIM_SAP_SERVER_MODE := true
 
 # Graphics
 USE_OPENGL_RENDERER := true
@@ -95,16 +94,9 @@ HAVE_ADRENO_SOURCE:= false
 VSYNC_EVENT_PHASE_OFFSET_NS := 7500000
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 5000000
 TARGET_USE_COMPAT_GRALLOC_PERFORM := true
-
-# Shader cache config options
-# Maximum size of the  GLES Shaders that can be cached for reuse.
-# Increase the size if shaders of size greater than 12KB are used.
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
-
-# Maximum GLES shader cache size for each app to store the compiled shader
-# binaries. Decrease the size if RAM or Flash Storage size is a limitation
-# of the device.
 MAX_EGL_CACHE_SIZE := 2048*1024
+TARGET_CONTINUOUS_SPLASH_ENABLED := true
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
@@ -181,6 +173,7 @@ EXTENDED_FONT_FOOTPRINT := true
 
 # Ril
 TARGET_RIL_VARIANT := caf
+FEATURE_QCRIL_UIM_SAP_SERVER_MODE := true
 
 # Simple time service client
 BOARD_USES_QC_TIME_SERVICES := true
