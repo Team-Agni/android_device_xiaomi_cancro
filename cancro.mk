@@ -332,6 +332,9 @@ PRODUCT_PACKAGES += \
     FMRadio \
     libfmjni
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    hw.fm.internal_antenna=true
+
 # USB
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
