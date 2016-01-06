@@ -169,6 +169,9 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.nfc.port=I2C
+
 ifeq ($(TARGET_BUILD_VARIANT),user)
     NFCEE_ACCESS_PATH := $(LOCAL_PATH)/nfc/nfcee_access.xml
 else
@@ -234,8 +237,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.voicecall=true \
     persist.audio.fluence.voicerec=true \
     persist.audio.fluence.speaker=false \
-    audio.offload.video=false \
-    use.voice.path.for.pcm.voip=true
+    audio.offload.video=false
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -362,12 +364,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Misc. system properties
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.debug.wfd.enable=1 \
+    persist.demo.hdmirotationlock=false \
+    ro.hdmi.enable=true \
     persist.hwc.mdpcomp.enable=true \
     persist.timed.enable=true \
+    persist.sys.wfd.virtual=0 \
     ro.opengles.version=196608 \
     telephony.lteOnGsmDevice=1 \
     ro.vendor.extension_library=libqti-perfd-client.so \
-    ro.telephony.call_ring.multiple=0 \
     ro.telephony.default_network=9
 
 # Enable Adaptive Multi-Rate Wideband
