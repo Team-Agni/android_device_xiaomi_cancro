@@ -361,7 +361,7 @@ vendor/lib/libchromatix_skuab_shinetech_gc0339_preview.so
 vendor/lib/libsensor_user_cal.so
 vendor/lib/libDivxDrm.so
 vendor/lib/libchromatix_ov4688_common.so
-vendor/lib/libc2d30.so
+vendor/lib/libc2d30-a4xx.so
 vendor/lib/libchromatix_imx225_default_video.so
 vendor/lib/libqdp.so
 vendor/lib/libchromatix_ov8825_hfr_120fps.so
@@ -422,6 +422,7 @@ vendor/lib/lib-rtpcommon.so
 vendor/lib/libchromatix_ov8865_q8v18a_snapshot.so
 vendor/lib/libchromatix_SKUAB_ST_s5k4e1_hfr_60fps.so
 vendor/lib/libperipheral_client.so
+vendor/lib/libsc-a2xx.so
 vendor/lib/libsc-a3xx.so
 vendor/lib/libchromatix_ov4688_default_video.so
 vendor/lib/libchromatix_imx135_common.so
