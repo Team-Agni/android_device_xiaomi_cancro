@@ -266,12 +266,6 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.stagefright.enable-player=true \
-    media.stagefright.enable-http=true \
-    media.stagefright.enable-aac=true \
-    media.stagefright.enable-qcp=true \
-    media.stagefright.enable-fma2dp=true \
-    media.stagefright.enable-scan=true \
     mmp.enable.3g2=true \
     mm.enable.smoothstreaming=true \
     mm.enable.qcom_parser=37491
