@@ -1,11 +1,11 @@
 # TWRP fstab
 
 #device                                          mount_point  fstype  mount_flags                           fs_flags                                                         twrp_flags
-/dev/block/platform/msm_sdcc.1/by-name/system    /system      ext4    defaults                              defaults                                                         twrp=backup=1;canbewiped;wipeingui
-/dev/block/platform/msm_sdcc.1/by-name/cache     /cache       f2fs    noatime,nosuid,nodev,inline_xattr     defaults                                                         twrp=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
-/dev/block/platform/msm_sdcc.1/by-name/cache     /cache       ext4    noatime,nosuid,nodev                  defaults                                                         twrp=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
-/dev/block/platform/msm_sdcc.1/by-name/userdata  /data        f2fs    noatime,nosuid,nodev,inline_xattr     defaults,encryptable=/dev/block/platform/msm_sdcc.1/by-name/bk1  twrp=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
-/dev/block/platform/msm_sdcc.1/by-name/userdata  /data        ext4    noatime,nosuid,nodev,noauto_da_alloc  defaults,encryptable=/dev/block/platform/msm_sdcc.1/by-name/bk1  twrp=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
+/dev/block/platform/msm_sdcc.1/by-name/system    /system      ext4    defaults                              defaults                                                         
+/dev/block/platform/msm_sdcc.1/by-name/cache     /cache       f2fs    noatime,nosuid,nodev,inline_xattr     defaults                                                         
+/dev/block/platform/msm_sdcc.1/by-name/cache     /cache       ext4    noatime,nosuid,nodev                  defaults                                                         
+/dev/block/platform/msm_sdcc.1/by-name/userdata  /data        f2fs    noatime,nosuid,nodev,inline_xattr     defaults,encryptable=/dev/block/platform/msm_sdcc.1/by-name/bk1
+/dev/block/platform/msm_sdcc.1/by-name/userdata  /data        ext4    noatime,nosuid,nodev,noauto_da_alloc  defaults,encryptable=/dev/block/platform/msm_sdcc.1/by-name/bk1
 /dev/block/platform/msm_sdcc.1/by-name/persist   /persist     ext4    defaults                              defaults
 /dev/block/platform/msm_sdcc.1/by-name/modem     /firmware    vfat    ro                                    defaults
 /dev/block/platform/msm_sdcc.1/by-name/boot      /boot        emmc    defaults                              defaults
