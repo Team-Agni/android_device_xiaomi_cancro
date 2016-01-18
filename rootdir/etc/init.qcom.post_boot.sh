@@ -59,9 +59,7 @@ case "$target" in
         echo 1 > /sys/module/msm_pm/modes/cpu1/retention/idle_enabled
         echo 1 > /sys/module/msm_pm/modes/cpu2/retention/idle_enabled
         echo 1 > /sys/module/msm_pm/modes/cpu3/retention/idle_enabled
-        echo 1 > /sys/module/msm_thermal/core_control/enabled
         echo Y > /sys/module/clock_krait_8974/parameters/boost
-        stop mpdecision
         echo 1 > /sys/devices/system/cpu/cpu1/online
         echo 1 > /sys/devices/system/cpu/cpu2/online
         echo 1 > /sys/devices/system/cpu/cpu3/online
@@ -128,7 +126,6 @@ case "$target" in
                 echo 80 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load
             ;;
         esac
-        echo 1 > /sys/module/msm_thermal/core_control/enabled
         chown -h root.system /sys/devices/system/cpu/mfreq
         chmod -h 220 /sys/devices/system/cpu/mfreq
         chown -h root.system /sys/devices/system/cpu/cpu1/online
@@ -172,7 +169,6 @@ case "$target" in
         chown system.system /sys/module/cpu_boost/parameters/input_boost_freq
         chown system.system /sys/module/cpu_boost/parameters/input_boost_ms
         echo 1 > /dev/cpuctl/apps/cpu.notify_on_migrate
-        start mpdecision
     ;;
 esac
 
@@ -193,14 +189,12 @@ esac
 # Post-setup services
 case "$target" in
     "msm8660" | "msm8960" | "msm8226" | "msm8610")
-        start mpdecision
     ;;
     "msm8974")
         echo 512 > /sys/block/mmcblk0/bdi/read_ahead_kb
     ;;
     "apq8084")
         rm /data/system/default_values
-        start mpdecision
         echo 512 > /sys/block/mmcblk0/bdi/read_ahead_kb
         echo 512 > /sys/block/sda/bdi/read_ahead_kb
         echo 512 > /sys/block/sdb/bdi/read_ahead_kb
@@ -219,7 +213,6 @@ case "$target" in
         fi
         case "$soc_id" in
             "127" | "128" | "129")
-                start mpdecision
         ;;
         esac
     ;;

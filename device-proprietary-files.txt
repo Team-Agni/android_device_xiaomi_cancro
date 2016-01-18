@@ -83,7 +83,6 @@ bin/btnvtool
 bin/wcnss_filter
 bin/quipc_main
 bin/quipc_igsn
-bin/mpdecision
 bin/fmconfig
 bin/fm_qsoc_patches
 bin/netmgrd

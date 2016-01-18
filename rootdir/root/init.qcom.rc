@@ -31,9 +31,6 @@ import init.target.rc
 on early-init
     mount debugfs debugfs /sys/kernel/debug
 
-on property:init.svc.bootanim=running
-    start mpdecision
-
 on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
@@ -51,11 +48,9 @@ on early-boot
 
 on boot
     # bring CPUs online
-    write /sys/module/msm_thermal/core_control/enabled 0
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/module/msm_thermal/core_control/enabled 1
 
     # [throttle_freq, throttle_temp, unthrottle_temp]
     write /sys/kernel/msm_thermal/low_thresh "1574400 45 43"
@@ -346,7 +341,6 @@ on charger
     write /sys/module/msm_pm/modes/cpu2/power_collapse/suspend_enabled 1
     write /sys/module/msm_pm/modes/cpu3/power_collapse/suspend_enabled 1
     write /sys/module/msm_pm/modes/cpu0/power_collapse/idle_enabled 1
-    write /sys/module/msm_thermal/core_control/enabled 0
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
@@ -354,7 +348,6 @@ on charger
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "conservative"
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "conservative"
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "conservative"
-    write /sys/module/msm_thermal/core_control/enabled 1
     write /sys/devices/system/cpu/cpu1/online 0
     write /sys/devices/system/cpu/cpu2/online 0
     write /sys/devices/system/cpu/cpu3/online 0
