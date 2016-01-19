@@ -59,10 +59,6 @@ on boot
     write /sys/kernel/msm_thermal/sampling_ms 10000
     write /sys/kernel/msm_thermal/enabled 1
 
-    # msm_thermal (for power HAL usage)
-    chown system system /sys/kernel/msm_thermal/user_maxfreq
-    chmod 0660 /sys/kernel/msm_thermal/user_maxfreq
-
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
@@ -125,6 +121,7 @@ on boot
 
     #Remove SUID bit for iproute2 ip tool
     chmod 0755 /system/bin/ip
+
 
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
