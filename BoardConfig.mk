@@ -90,7 +90,6 @@ USE_OPENGL_RENDERER := true
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-HAVE_ADRENO_SOURCE:= false
 VSYNC_EVENT_PHASE_OFFSET_NS := 7500000
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 5000000
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -163,14 +162,8 @@ TARGET_PROVIDES_LIBLIGHT := true
 # Use HW crypto for ODE
 TARGET_HW_DISK_ENCRYPTION := false
 
-# Added to indicate that protobuf-c is supported in this build
-PROTOBUF_SUPPORTED := true
-
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
-
-# Include an expanded selection of fonts
-EXTENDED_FONT_FOOTPRINT := true
 
 # Ril
 TARGET_RIL_VARIANT := caf

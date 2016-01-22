@@ -18,9 +18,6 @@ LOCAL_PATH := device/xiaomi/cancro
 # Device overlays
 DEVICE_PACKAGE_OVERLAYS += device/xiaomi/cancro/overlay
 
-# Device has no sdcard
-PRODUCT_CHARACTERISTICS := nosdcard
-
 # TWRP fstab
 # Use https://github.com/mdmower/twrp branch: cm-13.0
 ifeq ($(RECOVERY_VARIANT),twrp)
@@ -318,8 +315,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Data
 PRODUCT_PACKAGES += \
-    librmnetctl \
-    rmnetcli
+    librmnetctl
 
 # Keystore
 PRODUCT_PACKAGES += \
@@ -332,10 +328,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     hw.fm.internal_antenna=true
-
-# USB
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
 
 # Misc. dependency packages
 PRODUCT_PACKAGES += \
