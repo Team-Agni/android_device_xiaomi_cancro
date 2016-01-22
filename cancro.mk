@@ -22,6 +22,7 @@ DEVICE_PACKAGE_OVERLAYS += device/xiaomi/cancro/overlay
 PRODUCT_CHARACTERISTICS := nosdcard
 
 # TWRP fstab
+# Use https://github.com/mdmower/twrp branch: cm-13.0
 ifeq ($(RECOVERY_VARIANT),twrp)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/etc/twrp.fstab:recovery/root/etc/twrp.fstab
