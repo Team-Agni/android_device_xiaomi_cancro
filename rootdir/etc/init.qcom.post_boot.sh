@@ -190,8 +190,6 @@ esac
 
 # Post-setup services
 case "$target" in
-    "msm8660" | "msm8960" | "msm8226" | "msm8610")
-    ;;
     "msm8974")
         echo 512 > /sys/block/mmcblk0/bdi/read_ahead_kb
     ;;
@@ -213,10 +211,6 @@ case "$target" in
         else
             soc_id=`cat /sys/devices/system/soc/soc0/id`
         fi
-        case "$soc_id" in
-            "127" | "128" | "129")
-        ;;
-        esac
     ;;
 esac
 
