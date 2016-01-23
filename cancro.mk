@@ -326,9 +326,6 @@ PRODUCT_PACKAGES += \
     FMRadio \
     libfmjni
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    hw.fm.internal_antenna=true
-
 # Misc. dependency packages
 PRODUCT_PACKAGES += \
     ebtables \
