@@ -203,18 +203,40 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/etc/audio_effects.conf \
+    $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/init.qcom.audio.sh:system/etc/init.qcom.audio.sh \
-    $(LOCAL_PATH)/audio/listen_platform_info.xml:system/etc/listen_platform_info.xml \
-    $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml \
-    $(LOCAL_PATH)/audio/acdb/MTP/MTP_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP/MTP_General_cal.acdb:system/etc/acdbdata/MTP/MTP_General_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP/MTP_Global_cal.acdb:system/etc/acdbdata/MTP/MTP_Global_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP/MTP_Handset_cal.acdb:system/etc/acdbdata/MTP/MTP_Handset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP/MTP_Hdmi_cal.acdb:system/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP/MTP_Headset_cal.acdb:system/etc/acdbdata/MTP/MTP_Headset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP/MTP_Speaker_cal.acdb:system/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
+    $(LOCAL_PATH)/audio/mixer_paths/mixer_paths_3_x.xml:system/etc/mixer_paths_3_x.xml \
+    $(LOCAL_PATH)/audio/mixer_paths/mixer_paths_4_x.xml:system/etc/mixer_paths_4_x.xml \
+    $(LOCAL_PATH)/audio/mixer_paths/mixer_paths_5_x.xml:system/etc/mixer_paths_5_x.xml \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X3/MTP_X3_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/X3/MTP_X3_Bluetooth_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X3/MTP_X3_General_cal.acdb:system/etc/acdbdata/MTP/X3/MTP_X3_General_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X3/MTP_X3_Global_cal.acdb:system/etc/acdbdata/MTP/X3/MTP_X3_Global_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X3/MTP_X3_Handset_cal.acdb:system/etc/acdbdata/MTP/X3/MTP_X3_Handset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X3/MTP_X3_Hdmi_cal.acdb:system/etc/acdbdata/MTP/X3/MTP_X3_Hdmi_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X3/MTP_X3_Headset_cal.acdb:system/etc/acdbdata/MTP/X3/MTP_X3_Headset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X3/MTP_X3_Speaker_cal.acdb:system/etc/acdbdata/MTP/X3/MTP_X3_Speaker_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X4/MTP_X4_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/X4/MTP_X4_Bluetooth_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X4/MTP_X4_General_cal.acdb:system/etc/acdbdata/MTP/X4/MTP_X4_General_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X4/MTP_X4_Global_cal.acdb:system/etc/acdbdata/MTP/X4/MTP_X4_Global_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X4/MTP_X4_Handset_cal.acdb:system/etc/acdbdata/MTP/X4/MTP_X4_Handset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X4/MTP_X4_Hdmi_cal.acdb:system/etc/acdbdata/MTP/X4/MTP_X4_Hdmi_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X4/MTP_X4_Headset_cal.acdb:system/etc/acdbdata/MTP/X4/MTP_X4_Headset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X4/MTP_X4_Speaker_cal.acdb:system/etc/acdbdata/MTP/X4/MTP_X4_Speaker_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X5/MTP_X5_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/X5/MTP_X5_Bluetooth_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X5/MTP_X5_General_cal.acdb:system/etc/acdbdata/MTP/X5/MTP_X5_General_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X5/MTP_X5_Global_cal.acdb:system/etc/acdbdata/MTP/X5/MTP_X5_Global_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X5/MTP_X5_Handset_cal.acdb:system/etc/acdbdata/MTP/X5/MTP_X5_Handset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X5/MTP_X5_Hdmi_cal.acdb:system/etc/acdbdata/MTP/X5/MTP_X5_Hdmi_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X5/MTP_X5_Headset_cal.acdb:system/etc/acdbdata/MTP/X5/MTP_X5_Headset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/X5/MTP_X5_Speaker_cal.acdb:system/etc/acdbdata/MTP/X5/MTP_X5_Speaker_cal.acdb
+
+# Dirac audio
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/libdirac.so:system/lib/soundfx/libdirac.so \
+    $(LOCAL_PATH)/audio/diracmobile.config:system/vendor/etc/diracmobile.config \
+    $(LOCAL_PATH)/audio/diracmobile_4.config:system/vendor/etc/diracmobile_4.config
 
 PRODUCT_PACKAGES += \
     audiod \
@@ -230,38 +252,57 @@ PRODUCT_PACKAGES += \
     tinymix
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.speaker.prot.enable=true \
+    qcom.hw.aac.encoder=false \
+    tunnel.audio.encode=false \
+    persist.audio.init_volume_index=1 \
+    audio.offload.buffer.size.kb=32 \
+    audio.offload.video=true \
+    audio.offload.gapless.enabled=false \
+    audio.offload.disable=0 \
+    media.aac_51_output_enabled=true \
     ro.qc.sdk.audio.ssr=false \
     ro.qc.sdk.audio.fluencetype=fluence \
     persist.audio.fluence.voicecall=true \
-    persist.audio.fluence.voicerec=true \
-    persist.audio.fluence.speaker=false \
-    audio.offload.video=false
+    persist.audio.fluence.voicerec=false \
+    persist.audio.fluence.speaker=true \
+    audio.offload.pcm.enable=true
 
 # Media
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
     libdivxdrmdecrypt \
+    libextmedia_jni \
+    libdashplayer \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
     libOmxVdec \
+    libOmxVdecHevc \
     libOmxVenc \
-    libstagefrighthw
+    libOmxVidcCommon \
+    libstagefrighthw \
+    qcmediaplayer \
+    libqcmediaplayer \
+    libextmedia_jni
 
 PRODUCT_PROPERTY_OVERRIDES += \
     mmp.enable.3g2=true \
     mm.enable.smoothstreaming=true \
     mm.enable.qcom_parser=37491
+
+PRODUCT_BOOT_JARS += \
+    qcmediaplayer
 
 # Enable more sensors
 PRODUCT_PROPERTY_OVERRIDES += \
