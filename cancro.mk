@@ -238,6 +238,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/diracmobile.config:system/vendor/etc/diracmobile.config \
     $(LOCAL_PATH)/audio/diracmobile_4.config:system/vendor/etc/diracmobile_4.config
 
+# Nexus 5 "Robots for Everyone" ringtone
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/ringtones/RobotsforEveryone.ogg:system/media/audio/ringtones/RobotsforEveryone.ogg
+
 PRODUCT_PACKAGES += \
     audiod \
     audio.a2dp.default \
