@@ -116,13 +116,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.msm8974
 
-# Power
-PRODUCT_PACKAGES += \
-    power.msm8974
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qualcomm.perf.cores_online=1
-
 # WiFi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
@@ -401,7 +394,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.wfd.virtual=0 \
     ro.opengles.version=196608 \
     telephony.lteOnGsmDevice=1 \
-    ro.vendor.extension_library=libqti-perfd-client.so \
     ro.telephony.default_network=9
 
 # Enable Adaptive Multi-Rate Wideband

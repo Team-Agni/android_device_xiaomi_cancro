@@ -272,7 +272,6 @@ vendor/lib/libsensor_test.so
 vendor/lib/libmmcamera2_q3a_special.so
 vendor/lib/libmmcamera_ov4689.so
 vendor/lib/libchromatix_ov4689_common.so
-vendor/lib/libqti-perfd-client.so
 vendor/lib/lib-rtpsl.so
 vendor/lib/libmmcamera_imx225.so
 vendor/lib/libchromatix_ov8825_common.so
