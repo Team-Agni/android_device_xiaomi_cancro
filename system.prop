@@ -40,9 +40,6 @@ vidc.debug.level=1
 # Display
 ro.sf.lcd_density=480
 
-# Set io scheduler
-sys.io.scheduler=bfq
-
 # Art
 dalvik.vm.dex2oat-swap=false
 
