@@ -29,28 +29,12 @@ endif
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-# Display
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=480
-
 # adb unsecure for userdebug builds
 ifeq ($(TARGET_BUILD_VARIANT),userdebug)
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0 \
     ro.adb.secure=0
 endif
-
-# Set io scheduler
-PRODUCT_PROPERTY_OVERRIDES += \
-    sys.io.scheduler=bfq
-
-# Quick charge 2.0
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.usb.hvdcp.detect=true
-
-# Art
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dex2oat-swap=false
 
 # Charger
 PRODUCT_COPY_FILES += \
@@ -91,22 +75,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/quipc.conf:system/etc/quipc.conf \
     $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.gps.agps_provider=1
-
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8974 \
     libxml2 \
     Snap
-
-# Camera api
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    camera2.portability.force_api=1
-
-# Snap camera
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.cpp.duplication=false
 
 # Radio
 PRODUCT_PACKAGES += \
@@ -137,15 +110,6 @@ PRODUCT_PACKAGES += \
     hostapd.accept \
     hostapd.deny
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=15 \
-    ro.use_data_netmgrd=true \
-    persist.data.netmgrd.qos.enable=true \
-    persist.data.tcpackprio.enable=true \
-    ro.data.large_tcp_window_size=true \
-    persist.cne.feature=0
-
 # SoftAP
 PRODUCT_PACKAGES += \
     libqsap_sdk \
@@ -163,9 +127,6 @@ PRODUCT_PACKAGES += \
     nfc_nci.bcm2079x.default \
     NfcNci \
     Tag
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.nfc.port=I2C
 
 ifeq ($(TARGET_BUILD_VARIANT),user)
     NFCEE_ACCESS_PATH := $(LOCAL_PATH)/nfc/nfcee_access.xml
@@ -248,23 +209,6 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     tinymix
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.speaker.prot.enable=true \
-    qcom.hw.aac.encoder=false \
-    tunnel.audio.encode=false \
-    persist.audio.init_volume_index=1 \
-    audio.offload.buffer.size.kb=32 \
-    audio.offload.video=true \
-    audio.offload.gapless.enabled=false \
-    audio.offload.disable=0 \
-    media.aac_51_output_enabled=true \
-    ro.qc.sdk.audio.ssr=false \
-    ro.qc.sdk.audio.fluencetype=fluence \
-    persist.audio.fluence.voicecall=true \
-    persist.audio.fluence.voicerec=false \
-    persist.audio.fluence.speaker=true \
-    audio.offload.pcm.enable=true
-
 # Media
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
@@ -293,46 +237,8 @@ PRODUCT_PACKAGES += \
     libqcmediaplayer \
     libextmedia_jni
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    mmp.enable.3g2=true \
-    mm.enable.smoothstreaming=true \
-    mm.enable.qcom_parser=37491
-
 PRODUCT_BOOT_JARS += \
     qcmediaplayer
-
-# Enable more sensors
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qualcomm.sensors.qmd=true \
-    ro.qualcomm.sensors.smd=true \
-    ro.qualcomm.sensors.cmc=true \
-    ro.qualcomm.sensors.vmd=true \
-    ro.qualcomm.sensors.gtap=true \
-    ro.qualcomm.sensors.pedometer=true \
-    ro.qualcomm.sensors.pam=true \
-    ro.qualcomm.sensors.scrn_ortn=true \
-    ro.qualcomm.sensors.georv=true \
-    ro.qualcomm.sensors.game_rv=true \
-    ro.qc.sensors.step_detector=true \
-    ro.qc.sensors.step_counter=true \
-    ro.qc.sensors.max_geomag_rotvec=true \
-    ro.qc.sdk.sensors.gestures=true \
-    ro.qc.sdk.gestures.camera=false \
-    ro.qc.sdk.camera.facialproc=false \
-    debug.qualcomm.sns.hal=w \
-    debug.qualcomm.sns.daemon=w \
-    debug.qualcomm.sns.libsensor1=w
-
-# System property for cabl
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qualcomm.cabl=0 \
-    ro.qcom.ad=1 \
-    ro.qcom.ad.calib.data=/system/etc/calib.cfg
-
-# VIDC: debug_levels
-# 1:ERROR 2:HIGH 4:LOW 0:NOLOGS 7:AllLOGS
-PRODUCT_PROPERTY_OVERRIDES += \
-    vidc.debug.level=1
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -345,10 +251,6 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8974 \
     memtrack.msm8974 \
     liboverlay
-
-# power down SIM card when modem is sent to Low Power Mode.
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.apm_sim_not_pwdn=0
 
 # Data
 PRODUCT_PACKAGES += \
@@ -376,29 +278,6 @@ PRODUCT_PACKAGES += \
     AntHalService \
     com.dsi.ant.antradio_library \
     libantradio
-
-# Bluetooth
-PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.bt.dev_power_class=1 \
-    bluetooth.hfp.client=1 \
-    ro.bluetooth.alwaysbleon=true \
-    qcom.bt.dev_power_class=1
-
-# Misc. system properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.debug.wfd.enable=1 \
-    persist.demo.hdmirotationlock=false \
-    ro.hdmi.enable=true \
-    persist.hwc.mdpcomp.enable=true \
-    persist.timed.enable=true \
-    persist.sys.wfd.virtual=0 \
-    ro.opengles.version=196608 \
-    telephony.lteOnGsmDevice=1 \
-    ro.telephony.default_network=9
-
-# Enable Adaptive Multi-Rate Wideband
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.ril.enable.amr.wideband=1
 
 # Keylayout
 PRODUCT_COPY_FILES += \
