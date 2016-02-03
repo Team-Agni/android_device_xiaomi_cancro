@@ -61,7 +61,6 @@ ro.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true
 ro.data.large_tcp_window_size=true
 wifi.interface=wlan0
-wifi.supplicant_scan_interval=15
 persist.data.tcpackprio.enable=true
 
 # Cne
