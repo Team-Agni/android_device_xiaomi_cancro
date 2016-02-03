@@ -38,5 +38,3 @@ elif [ $RAW_ID == 1972 ]; then
  rm -rf /system/etc/permissions/*nfc*
  rm -rf /system/vendor/firmware/*bcm*
 fi
-
-exit 0
