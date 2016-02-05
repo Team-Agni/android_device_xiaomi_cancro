@@ -21,7 +21,9 @@ def FullOTA_PostValidate(info):
  info.script.AppendExtra('run_program("/sbin/e2fsck", "-fy", "/dev/block/platform/msm_sdcc.1/by-name/system");');
 
 def FullOTA_InstallEnd(info):
- info.script.AppendExtra('ui_print("Removing NFC for Mi4...");');
  info.script.Mount("/system");
+ info.script.AppendExtra('ui_print("Setting up dynamic audio...");');
+ info.script.AppendExtra('assert(run_program("/tmp/install/bin/dynamicaudio.sh") == 0);');
+ info.script.AppendExtra('ui_print("Removing NFC for Mi4...");');
  info.script.AppendExtra('assert(run_program("/tmp/install/bin/removenfc.sh") == 0);');
  info.script.Unmount("/system");

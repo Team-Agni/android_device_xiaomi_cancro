@@ -143,7 +143,7 @@ PRODUCT_COPY_FILES += \
 
 # NFC remover script for Mi4
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/nfc/removenfc.sh:install/bin/removenfc.sh
+    $(LOCAL_PATH)/releasetools/removenfc.sh:install/bin/removenfc.sh
 
 # Proprietery Firmware
 PRODUCT_COPY_FILES += \
@@ -161,35 +161,33 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/init.qcom.audio.sh:system/etc/init.qcom.audio.sh \
-    $(LOCAL_PATH)/audio/mixer_paths/mixer_paths_3_x.xml:system/etc/mixer_paths_3_x.xml \
-    $(LOCAL_PATH)/audio/mixer_paths/mixer_paths_4_x.xml:system/etc/mixer_paths_4_x.xml \
-    $(LOCAL_PATH)/audio/mixer_paths/mixer_paths_5_x.xml:system/etc/mixer_paths_5_x.xml \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X3/MTP_X3_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/X3/MTP_X3_Bluetooth_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X3/MTP_X3_General_cal.acdb:system/etc/acdbdata/MTP/X3/MTP_X3_General_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X3/MTP_X3_Global_cal.acdb:system/etc/acdbdata/MTP/X3/MTP_X3_Global_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X3/MTP_X3_Handset_cal.acdb:system/etc/acdbdata/MTP/X3/MTP_X3_Handset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X3/MTP_X3_Hdmi_cal.acdb:system/etc/acdbdata/MTP/X3/MTP_X3_Hdmi_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X3/MTP_X3_Headset_cal.acdb:system/etc/acdbdata/MTP/X3/MTP_X3_Headset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X3/MTP_X3_Speaker_cal.acdb:system/etc/acdbdata/MTP/X3/MTP_X3_Speaker_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X4/MTP_X4_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/X4/MTP_X4_Bluetooth_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X4/MTP_X4_General_cal.acdb:system/etc/acdbdata/MTP/X4/MTP_X4_General_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X4/MTP_X4_Global_cal.acdb:system/etc/acdbdata/MTP/X4/MTP_X4_Global_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X4/MTP_X4_Handset_cal.acdb:system/etc/acdbdata/MTP/X4/MTP_X4_Handset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X4/MTP_X4_Hdmi_cal.acdb:system/etc/acdbdata/MTP/X4/MTP_X4_Hdmi_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X4/MTP_X4_Headset_cal.acdb:system/etc/acdbdata/MTP/X4/MTP_X4_Headset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X4/MTP_X4_Speaker_cal.acdb:system/etc/acdbdata/MTP/X4/MTP_X4_Speaker_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X5/MTP_X5_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/X5/MTP_X5_Bluetooth_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X5/MTP_X5_General_cal.acdb:system/etc/acdbdata/MTP/X5/MTP_X5_General_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X5/MTP_X5_Global_cal.acdb:system/etc/acdbdata/MTP/X5/MTP_X5_Global_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X5/MTP_X5_Handset_cal.acdb:system/etc/acdbdata/MTP/X5/MTP_X5_Handset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X5/MTP_X5_Hdmi_cal.acdb:system/etc/acdbdata/MTP/X5/MTP_X5_Hdmi_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X5/MTP_X5_Headset_cal.acdb:system/etc/acdbdata/MTP/X5/MTP_X5_Headset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/X5/MTP_X5_Speaker_cal.acdb:system/etc/acdbdata/MTP/X5/MTP_X5_Speaker_cal.acdb
+    $(LOCAL_PATH)/audio/mixer_paths_3.xml:system/etc/mixer_paths_3.xml \
+    $(LOCAL_PATH)/audio/mixer_paths_4.xml:system/etc/mixer_paths_4.xml \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/3/MTP_Bluetooth_cal.acdb:system/etc/acdbdata/MTP_tmp/3/MTP_Bluetooth_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/3/MTP_General_cal.acdb:system/etc/acdbdata/MTP_tmp/3/MTP_General_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/3/MTP_Global_cal.acdb:system/etc/acdbdata/MTP_tmp/3/MTP_Global_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/3/MTP_Handset_cal.acdb:system/etc/acdbdata/MTP_tmp/3/MTP_Handset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/3/MTP_Hdmi_cal.acdb:system/etc/acdbdata/MTP_tmp/3/MTP_Hdmi_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/3/MTP_Headset_cal.acdb:system/etc/acdbdata/MTP_tmp/3/MTP_Headset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/3/MTP_Speaker_cal.acdb:system/etc/acdbdata/MTP_tmp/3/MTP_Speaker_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/4/MTP_Bluetooth_cal.acdb:system/etc/acdbdata/MTP_tmp/4/MTP_Bluetooth_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/4/MTP_General_cal.acdb:system/etc/acdbdata/MTP_tmp/4/MTP_General_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/4/MTP_Global_cal.acdb:system/etc/acdbdata/MTP_tmp/4/MTP_Global_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/4/MTP_Handset_cal.acdb:system/etc/acdbdata/MTP_tmp/4/MTP_Handset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/4/MTP_Hdmi_cal.acdb:system/etc/acdbdata/MTP_tmp/4/MTP_Hdmi_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/4/MTP_Headset_cal.acdb:system/etc/acdbdata/MTP_tmp/4/MTP_Headset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/MTP/4/MTP_Speaker_cal.acdb:system/etc/acdbdata/MTP_tmp/4/MTP_Speaker_cal.acdb
+
+# Dynamic audio script
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/releasetools/dynamicaudio.sh:install/bin/dynamicaudio.sh
 
 # Dirac audio
+PRODUCT_PACKAGES += \
+    libdirac
+
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/libdirac.so:system/lib/soundfx/libdirac.so \
-    $(LOCAL_PATH)/audio/diracmobile.config:system/vendor/etc/diracmobile.config \
+    $(LOCAL_PATH)/audio/diracmobile_3.config:system/vendor/etc/diracmobile_3.config \
     $(LOCAL_PATH)/audio/diracmobile_4.config:system/vendor/etc/diracmobile_4.config
 
 # Nexus 5 "Robots for Everyone" ringtone
