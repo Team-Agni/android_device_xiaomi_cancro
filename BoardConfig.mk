@@ -56,12 +56,8 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
 TARGET_KERNEL_SOURCE := kernel/xiaomi/cancro
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_CONFIG := cancro_custom_defconfig
-
-# Kernel headers
-TARGET_BOARD_KERNEL_HEADERS := $(CANCRO_PATH)/kernel-headers
-
-# Use arm-linux-androideabi for kernel
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
+TARGET_BOARD_KERNEL_HEADERS := $(CANCRO_PATH)/kernel-headers
 
 # Vendor init
 TARGET_UNIFIED_DEVICE := true
@@ -90,9 +86,6 @@ AUDIO_FEATURE_ENABLED_USBAUDIO := true
 AUDIO_FEATURE_ENABLED_SPKR_PROTECTION := true
 BOARD_FORTEMEDIA_QDSP_ENABLED := true
 AUDIO_FEATURE_ENABLED_EXTN_RESAMPLER := true
-
-# Dynamic mixer paths
-AUDIO_FEATURE_DYNAMIC_MIXER_PATHS := true
 
 # QCOM av enhancements
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
@@ -175,9 +168,6 @@ TARGET_NO_RPC := true
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
-
-# Use HW crypto for ODE
-TARGET_HW_DISK_ENCRYPTION := false
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
