@@ -32,7 +32,20 @@
     <bool translatable="false" name="skip_restoring_network_selection">true</bool>
     <bool name="config_cellBroadcastAppLinks">true</bool>
 
+    <!-- WiFI Display -->
+    <bool name="config_enableWifiDisplay">true</bool>
+
     <integer name="config_radioScanningTimeout">9000</integer>
+
+    <!-- Our modem doesn't support this query yet -->
+    <string name="config_radio_access_family">GPRS|EDGE|UMTS|HSDPA|HSUPA|HSPA|LTE|HSPAP|GSM|TD_SCDMA|WCDMA|LTE_CA</string>
+
+    <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
+         for debouncing the light sensor.  Different constants are used to debounce the light sensor
+         when adapting to brighter or darker environments.  This parameter controls how quickly
+         brightness changes occur in response to an observed change in light level that exceeds the
+         hysteresis threshold. -->
+    <integer name="config_autoBrightnessBrighteningLightDebounce">400</integer>
 
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
          The N entries of this array define N  1 zones as follows:
@@ -294,23 +307,8 @@
     <!-- If true, the doze component is not started until after the screen has been
          turned off and the screen off animation has been performed. -->
     <bool name="config_dozeAfterScreenOff">true</bool>
-    <integer name="config_screenBrightnessDoze">10</integer>
-
-    <!-- Control the behavior when the user short presses the power button.
-            0 - Nothing
-            1 - Go to sleep (doze)
-            2 - Really go to sleep (don't doze)
-            3 - Really go to sleep and go home (don't doze)
-    -->
-    <integer name="config_shortPressOnPowerBehavior">1</integer>
 
     <!-- enable doze powersaving mode -->
     <bool name="config_enableAutoPowerModes">true</bool>
-
-    <!-- Our modem doesn't support this query yet -->
-    <string name="config_radio_access_family">GPRS|EDGE|UMTS|HSDPA|HSUPA|HSPA|LTE|HSPAP|GSM|TD_SCDMA|WCDMA|LTE_CA</string>
-
-    <!-- WiFI Display -->
-    <bool name="config_enableWifiDisplay">true</bool>
 
 </resources>
