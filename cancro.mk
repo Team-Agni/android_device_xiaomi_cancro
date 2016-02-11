@@ -184,6 +184,7 @@ PRODUCT_COPY_FILES += \
 
 # Dirac audio
 PRODUCT_PACKAGES += \
+    libDiracAPI_SHARED \
     libdirac
 
 PRODUCT_COPY_FILES += \

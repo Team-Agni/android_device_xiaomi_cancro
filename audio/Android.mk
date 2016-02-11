@@ -11,14 +11,25 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-
-LOCAL_SRC_FILES     := libdirac.so
-LOCAL_MODULE_PATH   := $(TARGET_OUT_SHARED_LIBRARIES)/soundfx
-LOCAL_MODULE_TAGS   := optional
-LOCAL_MODULE_CLASS  := SHARED_LIBRARIES
+LOCAL_MODULE := libDiracAPI_SHARED
+LOCAL_MODULE_OWNER := xiaomi
+LOCAL_SRC_FILES := libDiracAPI_SHARED.so
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)
+LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_SUFFIX := .so
-LOCAL_MODULE        := libdirac
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libdirac
+LOCAL_MODULE_OWNER := xiaomi
+LOCAL_SRC_FILES := libdirac.so
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/soundfx
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 include $(BUILD_PREBUILT)
