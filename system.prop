@@ -135,3 +135,6 @@ ro.qc.sdk.camera.facialproc=false
 
 # Enable Adaptive Multi-Rate Wideband
 ro.ril.enable.amr.wideband=1
+
+# Native Multiwindow
+persist.sys.debug.multi_window=true
