@@ -69,7 +69,7 @@ on post-fs-data
     chown system graphics /sys/class/graphics/fb0/dynamic_fps
     chmod 0664 /sys/class/graphics/fb0/dynamic_fps
 
-    # Vibrator
+    # Vibrator HW
     chown system system /sys/vibrator/pwmvalue
     chmod 0644 /sys/vibrator/pwmvalue
 
@@ -95,6 +95,11 @@ on post-fs-data
     chmod 0664 /sys/bus/i2c/drivers/atmel_mxt_ts_640t/2-004b/stylus
     restorecon /sys/bus/i2c/drivers/atmel_mxt_ts_640t/2-004b/stylus
 
+    # RBG calibration
+    chown system system /sys/devices/virtual/graphics/fb0/rgb
+    chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
+    restorecon /sys/devices/virtual/graphics/fb0/rgb
+
     # Enable writing to led blink node from userspace
     chown system system /sys/class/leds/button-backlight/brightness
     chown system system /sys/class/leds/button-backlight1/brightness
@@ -107,9 +112,6 @@ on post-fs-data
     chown system system /sys/class/leds/blue/blink
     chown system system /sys/class/leds/blue/duty_pcts
     chown system system /sys/class/leds/blue/ramp_step_ms
-
-    chown system system /sys/devices/virtual/graphics/fb0/rgb
-    chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
 
 on boot
     chown system system /sys/class/input/input0/enabled

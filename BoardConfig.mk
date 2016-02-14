@@ -161,7 +161,10 @@ TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 endif
 
 # CM hardware
-BOARD_HARDWARE_CLASS += $(CANCRO_PATH)/cmhw
+BOARD_USES_CYANOGEN_HARDWARE = true
+BOARD_HARDWARE_CLASS += \
+    $(CANCRO_PATH)/cmhw \
+    hardware/cyanogen/cmhw
 
 # No old RPC for prop
 TARGET_NO_RPC := true
