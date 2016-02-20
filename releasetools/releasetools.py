@@ -24,6 +24,6 @@ def FullOTA_InstallEnd(info):
  info.script.Mount("/system");
  info.script.AppendExtra('ui_print("Setting up dynamic audio...");');
  info.script.AppendExtra('assert(run_program("/tmp/install/bin/dynamicaudio.sh") == 0);');
- info.script.AppendExtra('ui_print("Removing NFC for Mi4...");');
+ info.script.AppendExtra('ui_print("Removing NFC for MI 4 variants...");');
  info.script.AppendExtra('assert(run_program("/tmp/install/bin/removenfc.sh") == 0);');
  info.script.Unmount("/system");

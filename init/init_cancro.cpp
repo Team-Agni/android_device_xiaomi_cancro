@@ -87,6 +87,9 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         case 1974:
             property_set("ro.product.model", "MI 4W");
             break;
+        case 1973:
+            property_set("ro.product.model", "MI 4CDMA");
+            break;
         case 1972:
             property_set("ro.product.model", "MI 4LTE");
             property_set("ro.product.name", "cancro_wc_lte");
