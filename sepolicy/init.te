@@ -1,4 +1,5 @@
 #============= init ==============
+allow init cache_block_device:blk_file rw_file_perms;
 allow init chargeonlymode:file execute_no_trans;
 allow init chargeonlymode:process { siginh transition rlimitinh };
 allow init device:chr_file { create unlink };
@@ -13,3 +14,4 @@ allow init self:socket { write read create ioctl };
 allow init sensors_device:chr_file getattr;
 allow init sensors_socket:sock_file write;
 allow init sensors:unix_stream_socket connectto;
+allow init userdata_block_device:blk_file rw_file_perms;
