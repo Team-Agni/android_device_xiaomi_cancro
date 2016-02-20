@@ -124,6 +124,7 @@ debug.mdpcomp.logs=0
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
 ro.com.widevine.cachesize=16777216
+persist.data.qmi.adb_logmask=0
 
 # Simulate sdcard on /data/media
 persist.fuse_sdcard=true
