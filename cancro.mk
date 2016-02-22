@@ -176,20 +176,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/acdbdata/MTP/4/MTP_Handset_cal.acdb:system/etc/acdbdata/MTP_tmp/4/MTP_Handset_cal.acdb \
     $(LOCAL_PATH)/audio/acdbdata/MTP/4/MTP_Hdmi_cal.acdb:system/etc/acdbdata/MTP_tmp/4/MTP_Hdmi_cal.acdb \
     $(LOCAL_PATH)/audio/acdbdata/MTP/4/MTP_Headset_cal.acdb:system/etc/acdbdata/MTP_tmp/4/MTP_Headset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/MTP/4/MTP_Speaker_cal.acdb:system/etc/acdbdata/MTP_tmp/4/MTP_Speaker_cal.acdb
+    $(LOCAL_PATH)/audio/acdbdata/MTP/4/MTP_Speaker_cal.acdb:system/etc/acdbdata/MTP_tmp/4/MTP_Speaker_cal.acdb \
+    $(LOCAL_PATH)/audio/diracmobile_3.config:system/vendor/etc/diracmobile_3.config \
+    $(LOCAL_PATH)/audio/diracmobile_4.config:system/vendor/etc/diracmobile_4.config
 
 # Dynamic audio script
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/releasetools/dynamicaudio.sh:install/bin/dynamicaudio.sh
-
-# Dirac audio
-PRODUCT_PACKAGES += \
-    libDiracAPI_SHARED \
-    libdirac
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/diracmobile_3.config:system/vendor/etc/diracmobile_3.config \
-    $(LOCAL_PATH)/audio/diracmobile_4.config:system/vendor/etc/diracmobile_4.config
 
 # Nexus 5 "Robots for Everyone" ringtone
 PRODUCT_COPY_FILES += \
