@@ -85,6 +85,9 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
             /* product model */
             property_set("ro.product.model", "MI 3W");
 
+            /* NFC port */
+            property_set("ro.nfc.port", "I2C");
+
             /* dalvik heap & hwiu */
             property_set("dalvik.vm.heapstartsize", "16m");
             property_set("dalvik.vm.heapgrowthlimit", "192m");
@@ -179,6 +182,9 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         default:
             /* product model */
             property_set("ro.product.model", "MI Cancro");
+
+            /* NFC port */
+            property_set("ro.nfc.port", "I2C");
 
             /* dalvik heap & hwiu */
             property_set("dalvik.vm.heapstartsize", "16m");

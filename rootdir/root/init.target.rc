@@ -144,7 +144,6 @@ on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
 
 # NFC
-   setprop ro.nfc.port "I2C"
     chmod 0600 /dev/bcm2079x
     chown nfc nfc /dev/bcm2079x
     mkdir /data/nfc
