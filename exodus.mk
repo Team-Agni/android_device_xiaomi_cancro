@@ -22,17 +22,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 # Inherit from cancro device
 $(call inherit-product, device/xiaomi/cancro/cancro.mk)
 
-# Inherit some common CM stuff
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common Exodus stuff
+$(call inherit-product, vendor/exodus/config/common_full_phone.mk)
 
 # Enhanced NFC
-$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
+$(call inherit-product, vendor/exodus/config/nfc_enhanced.mk)
 
 # Call the proprietary setup if it exits
 $(call inherit-product-if-exists, vendor/xiaomi/cancro/cancro-vendor.mk)
 
 # Product configuration
-PRODUCT_NAME := cm_cancro
+PRODUCT_NAME := exodus_cancro
 PRODUCT_DEVICE := cancro
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
