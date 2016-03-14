@@ -21,17 +21,13 @@ RAW_ID=$(cat /sys/devices/system/soc/soc0/raw_id)
 if [ $RAW_ID == 1974 ] || [ $RAW_ID == 1973 ] || [ $RAW_ID == 1972 ]; then
  mv -f /system/etc/acdbdata/MTP_tmp/4 /system/etc/acdbdata/MTP
  mv -f /system/etc/mixer_paths_4.xml /system/etc/mixer_paths.xml
- mv -f /system/vendor/etc/diracmobile_4.config /system/vendor/etc/diracmobile.config
  # cleanup
  rm -rf /system/etc/acdbdata/MTP_tmp
  rm -f /system/etc/mixer_paths_3.xml
- rm -f /system/vendor/etc/diracmobile_3.config
 else
  mv -f /system/etc/acdbdata/MTP_tmp/3 /system/etc/acdbdata/MTP
  mv -f /system/etc/mixer_paths_3.xml /system/etc/mixer_paths.xml
- mv -f /system/vendor/etc/diracmobile_3.config /system/vendor/etc/diracmobile.config
  # cleanup
  rm -rf /system/etc/acdbdata/MTP_tmp
  rm -f /system/etc/mixer_paths_4.xml
- rm -f /system/vendor/etc/diracmobile_4.config
 fi
