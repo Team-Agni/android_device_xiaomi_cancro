@@ -43,32 +43,12 @@ persist.data.tcpackprio.enable=true
 persist.cne.feature=0
 
 # Audio
-persist.speaker.prot.enable=true
-qcom.hw.aac.encoder=false
-persist.audio.dirac.speaker=true
-tunnel.audio.encode=false
-audio.offload.buffer.size.kb=32
-audio.offload.video=true
-audio.offload.gapless.enabled=false
-audio.offload.disable=1
-ro.qc.sdk.audio.ssr=false
 ro.qc.sdk.audio.fluencetype=fluence
 persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=false
-persist.audio.fluence.speaker=true
-audio.offload.pcm.enable=false
 
 # Media
-media.stagefright.enable-player=true
-media.stagefright.enable-http=true
-media.stagefright.enable-aac=true
-media.stagefright.enable-qcp=true
-media.stagefright.enable-fma2dp=true
-media.stagefright.enable-scan=true
-mmp.enable.3g2=true
 mm.enable.smoothstreaming=true
 media.aac_51_output_enabled=true
-mm.enable.qcom_parser=37491
 
 # Bluetooth
 qcom.bt.dev_power_class=1
