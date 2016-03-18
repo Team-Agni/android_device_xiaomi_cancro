@@ -169,16 +169,6 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
-# Enable dex-preoptimization to speed up first boot sequence
-ifeq ($(HOST_OS),linux)
-  ifeq ($(TARGET_BUILD_VARIANT),user)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
-endif
-DONT_DEXPREOPT_PREBUILTS := true
-
 # QCOM sepolicy
 include device/qcom/sepolicy/sepolicy.mk
 
