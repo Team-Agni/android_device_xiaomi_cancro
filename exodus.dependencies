@@ -1,6 +1,20 @@
 [
   {
+   "remote": "cm",
    "repository": "android_device_qcom_common",
-   "target_path": "device/qcom/common"
+   "target_path": "device/qcom/common",
+   "revision": "cm-13.0"
+  },
+  {
+   "remote": "github",
+   "repository": "MrBaNkS/android_kernel_xiaomi_cancro",
+   "target_path": "kernel/xiaomi/cancro",
+   "revision": "cm-13.0"
+  },
+  {
+   "remote": "github",
+   "repository": "VanirAOSP/vendor_xiaomi",
+   "target_path": "vendor/xiaomi",
+   "revision": "m6"
   }
 ]
